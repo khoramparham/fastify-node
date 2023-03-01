@@ -4,12 +4,23 @@
   "description": "telegram bot api",
   "main": "server.js",
   "scripts": {
+    "start": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "parham khoram",
   "license": "ISC",
   "dependencies": {
-    "dotenv": "^16.0.3",
-    "telegraf": "^4.11.2"
-  }
+    "@fastify/swagger": "8.3.1",
+    "@fastify/swagger-ui": "1.3.0",
+    "dotenv": "16.0.3",
+    "fastify": "4.12.0",
+    "pg": "^8.9.0",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.28.0",
+    "telegraf": "4.11.2"
+  },
+  "devDependencies": {
+    "nodemon": "2.0.20"
+  },
+  "type": "module"
 }
