@@ -1,34 +1,23 @@
 import * as dotenv from "dotenv";
 dotenv.config();
 import Fastify from "fastify";
-const fastify = Fastify({
+export const fastify = Fastify({
   logger: true,
 });
-import { Sequelize } from "sequelize";
 import fastifySwagger from "@fastify/swagger";
 import fastifySwaggerUi from "@fastify/swagger-ui";
 import { swaggerConfig, swaggerUIConfig } from "./config/swagger.config.js";
+import cors from "@fastify/cors";
 // postgres
-export const sequelize = new Sequelize(
-  process.env.POSTGRES_NAME,
-  process.env.POSTGRES_USER,
-  process.env.POSTGRES_PASSWORD,
-  {
-    host: "localhost",
-    port: process.env.POSTGRES_PORT,
-    dialect: "postgres",
-    logging: false,
-  }
-);
-const DBConnection = async () => {
-  try {
-    await sequelize.authenticate();
-    console.log("postgres connection has been established successfully.");
-  } catch (error) {
-    console.error("Unable to connect to the database:", error);
-  }
-};
-DBConnection();
+import "./config/sequelize.config.js";
+// cors
+fastify.register(cors);
+//  bcrypt
+import fastifyBcrypt from "fastify-bcrypt";
+fastify.register(fastifyBcrypt, { saltWorkFactor: 12 });
+// JWT
+import fastifyJwt from "@fastify/jwt";
+fastify.register(fastifyJwt, { secret: process.env.SECRET_KEY });
 // routes
 import userRoutes from "./router/user.router.js";
 import authRoutes from "./router/auth.router.js";

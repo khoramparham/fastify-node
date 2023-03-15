@@ -22,7 +22,7 @@ export const swaggerConfig = {
     //   url: "https://swagger.io",
     //   description: "telegram bot ",
     // },
-    host: "http://localhost:5000",
+    host: "localhost:5000",
     schemes: ["http"],
     // consumes: ["application/json"],
     // produces: ["application/json"],
