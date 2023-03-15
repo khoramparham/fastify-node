@@ -1,0 +1,5 @@
+docker run --name postgres-docker -e POSTGRES_USER=postgres POSTGRES_PASSWORD=root POSTGRES_DB=fastify -d postgres
+docker command for running postgres
+for add server pgadmin we should use:
+1. docker inspect ""container id""
+2. use ip address as host address 
