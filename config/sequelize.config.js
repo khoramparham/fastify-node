@@ -1,6 +1,6 @@
 import { Sequelize } from "sequelize";
 // postgres
-export const sequelize = new Sequelize("fastify", "postgres", "root", {
+export const sequelize = new Sequelize("postgres", "postgres", "root", {
   host: "localhost",
   port: 5432,
   dialect: "postgres",
