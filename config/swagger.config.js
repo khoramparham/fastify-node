@@ -17,7 +17,6 @@ export const swaggerConfig = {
         in: "header",
       },
     },
-    security: [{ apiKey: [] }],
     // externalDocs: {
     //   url: "https://swagger.io",
     //   description: "telegram bot ",
